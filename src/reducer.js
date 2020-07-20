@@ -1,12 +1,5 @@
 export const initialState = {
-    basket: [{
-        id:"12321341" ,
-        title:"The lean Startup: How constant inovation creates radically successful businesses paperback" ,
-        price:11.96 ,
-        rating:5 ,
-        image:"https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
-    },
-],
+    basket: [],
     user: null,
 };
 
@@ -16,6 +9,11 @@ basket?.reduce((amount,item)=> item.price + amount,0);
 const reducer = (state, action) => {
     console.log(action);
     switch(action.type){
+        case "SET_USER":
+            return{
+                ...state,
+                user: action.user,
+            }
         case 'ADD_TO_BASKET':
             return{
                 ...state,
